@@ -93,8 +93,11 @@ class Calendar extends React.Component {
 
   onKeyDown = (event) => {
     if (event.target.nodeName.toLowerCase() === 'input') {
-      return undefined;
+      if(!(keyCode === _KeyCode2['default'].ENTER || keyCode === _KeyCode2['default'].ESC)) {
+        return undefined
+      }
     }
+
     const keyCode = event.keyCode;
     // mac
     const ctrlKey = event.ctrlKey || event.metaKey;
